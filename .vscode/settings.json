@@ -3,6 +3,7 @@
   "deno.lint": true,
   "deno.unstable": true,
   "deno.config": "./deno.jsonc",
+  "deno.disablePaths": ["web"],
   "[json]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },

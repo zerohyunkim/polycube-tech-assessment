@@ -6,7 +6,6 @@ export type Input = [string, string][]
 
 
 /** 노드 사이를 간선으로 연결 */
-
 export const mkConnect = (graph: Graph) => (from: Node, to: Node) => {
 	if (!graph[from]) graph[from] = new Set()
 	if (!graph[to]) graph[to] = new Set()
@@ -14,8 +13,8 @@ export const mkConnect = (graph: Graph) => (from: Node, to: Node) => {
 	graph[from].add(to)
 	graph[to].add(from)
 }
-/** 노드 사이의 간선을 제거 */
 
+/** 노드 사이의 간선을 제거 */
 export const mkTraverse = (graph: Graph) => (from: Node, to: Node) => {
 	graph[from].delete(to)
 	graph[to].delete(from)

@@ -62,9 +62,24 @@ Deno.test("짝수점", async (t) => {
 })
 
 Deno.test("홀수점", async (t) => {
-	await t.step("홀수점 2개", () => {
-		const input: Input = [["A", "B"], ["A", "C"], ["A", "D"], ["B", "C"]]
-		assertEquals(solution(input), ["A", "B", "C", "A", "D"])
+	await t.step("홀수점 2개", async (t) => {
+		await t.step("화살표", () => {
+			const input: Input = [["A", "B"], ["A", "C"], ["A", "D"], ["B", "C"]]
+			assertEquals(solution(input), ["A", "B", "C", "A", "D"])
+		})
+		await t.step("집", () => {
+			const input: Input = [
+				["A", "B"],
+				["A", "C"],
+				["B", "C"],
+				["B", "D"],
+				["C", "E"],
+				["D", "E"],
+				["B", "E"],
+				["C", "D"],
+			]
+			assertEquals(solution(input), ["D", "B", "A", "C", "B", "E", "C", "D", "E"])
+		})
 	})
 	await t.step("홀수점 4개", () => {
 		const input: Input = [
