@@ -1,50 +1,22 @@
-# 코딩 테스트 결과
+# 코딩 테스트 풀이
 
-## Vanilla JS
+폴리큐브의 코딩 테스트 문제 풀이입니다. 항목별 풀이는 링크를 클릭해주세요.
 
-### 구조 분해 할당
+## [Vanilla JS](./js.ipynb)
 
-배열의 값 또는 객체의
-
-```ts
-const [a, b] = [1, 2, 3, 4, 5]
-// a = 1, b = 2
-
-const [a, b, ...rest] = [1, 2, 3, 4, 5]
-// a = 1, b = 2, rest = [3, 4, 5]
-
-const [a, b, ...rest] = [1]
-// a = 1, b = undefined, rest = []
-
-const [a, b, ...rest] = []
-// a = undefined, b = undefined, rest = []
-```
-
-```ts
-const { a, b } = { a: 1, b: 2, c: 3, d: 4, e: 5 }
-// a = 1, b = 2
-
-const { a, b, ...rest } = { a: 1, b: 2, c: 3, d: 4, e: 5 }
-// a = 1, b = 2, rest = { c: 3, d: 4, e: 5 }
-
-const { a, b } = {}
-// a = undefined, b = undefined
-```
-
-[참고 링크](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
-
-### 배열
-
-```ts
-const arr = [] // undefined
-arr.push("a") // 1, ["a"]
-arr.shift() // "a", arr = []
-arr.unshift("a") // 1, ["a"]
-```
+## [Web](./web/README.md)
 
 ## 알고리즘
 
-그래프의 임의 노드로부터 시작해 모든 간선을 한 번만 지나는 경로를 찾는 것은 한붓그리기 문제이다. 한붓그리기가 가능하려면 모든 노드를 통틀어 홀수 개의 간선을 가진 노드(홀수점)가 0개 또는 2개여야 한다.
+그래프의 임의 노드로부터 시작해 모든 간선을 한 번만 지나는 경로를 찾는 것은 [한붓그리기 문제 (Eulerian Path)](https://en.wikipedia.org/wiki/Eulerian_path)이다.
+
+### 구현
+
+
+
+### 경로가 존재하기 위한 조건
+
+한붓그리기가 가능하려면 모든 노드를 통틀어 홀수 개의 간선을 가진 노드(홀수점)가 0개 또는 2개여야 한다.
 
 <details><summary>원리</summary>
 
@@ -53,30 +25,14 @@ arr.unshift("a") // 1, ["a"]
 ```mermaid
 graph LR
   A --- B
-  B --- A
+  B --- C
+  C --- A
 ```
 
-```mermaid
-graph LR
-  A --- B
-  B --- C
-  C --- D
-  D --- A
-```
 
 모든 노드의 차수가 짝수인 짝수점이므로, 어느 노드에서 시작해도 한붓그리기가 가능하다.
 
 ### 홀수점이 2개인 그래프
-
-```mermaid
-graph LR
-  A --- B
-  A -.- B
-  A --- B
-
-  style A fill:#f96
-  style B fill:#f96
-```
 
 ```mermaid
 graph LR
