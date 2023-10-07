@@ -3,8 +3,11 @@
 폴리큐브의 코딩 테스트 문제 풀이입니다. 항목별 풀이는 링크를 클릭해주세요.
 
 ## [Vanilla JS](./js.ipynb)
+ipynb 노트북 파일에 문제와 풀이를 적었습니다. 로컬에서 실행하려면 [jupyter notebook](https://deno.com/blog/v1.37) 설치가 필요합니다.
 
-## [Web](./web/README.md)
+## [React](./web/README.md)
+
+![image](https://github.com/zerohyunkim/polycube-tech-assessment/assets/54838975/f1b6a842-92fd-4867-8fe8-8a92c25d62e1)
 
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://polycube-tech-assessment.vercel.app/)
 
@@ -14,11 +17,43 @@ Vercel에서 과제를 실행하실수 있습니다.
 
 그래프의 임의 노드로부터 시작해 모든 간선을 한 번만 지나는 경로를 찾는 것은 [한붓그리기 문제 (Eulerian Path)](https://en.wikipedia.org/wiki/Eulerian_path)입니다.
 
+### 실행 방법
+
+`node solution.js <입력.json>`를 실행하여 결과를 확인할 수 있습니다.
+
+```sh
+node solution.js input.json
+# input: [
+#   [ 'A', 'B' ],
+#   [ 'A', 'D' ],
+#   [ 'B', 'C' ],
+#   [ 'B', 'D' ],
+#   [ 'B', 'E' ],
+#   [ 'C', 'D' ],
+#   [ 'C', 'E' ],
+#   [ 'D', 'E' ]
+# ]
+# solution:  [
+#   'C', 'B', 'A',
+#   'D', 'B', 'E',
+#   'C', 'D', 'E'
+# ]
+```
+
+`solution.js`의 전체 구현 코드는 [main.ts](./main.ts), [graph.ts](./graph.ts), [isEven.ts](./isEven.ts)로 정리하였습니다. 테스트 코드를 실행하기 위해서는 [Deno](https://deno.land/)가 필요합니다.
+
+![image](https://github.com/zerohyunkim/polycube-tech-assessment/assets/54838975/6891d436-68f0-4f6c-a49a-55001d047072)
+
+```sh
+deno test
+```
+
 ### 구현
 
 1. 시작점을 찾습니다. 홀수점 2개인 경우, 첫 번째 홀수점을, 홀수점이 없는 경우 임의의 첫 노드를 시작점으로 합니다.
 2. 반드시 한붓그리기가 가능하므로, 지나간 경로를 지우는 깊이 우선 탐색을 통해 모든 경로를 탐색합니다.
 3. 탐색한 경로를 역순으로 정렬하여 경로를 구합니다.
+
 
 ### 경로가 존재하기 위한 조건
 

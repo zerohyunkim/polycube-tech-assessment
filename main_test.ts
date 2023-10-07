@@ -80,6 +80,20 @@ Deno.test("홀수점", async (t) => {
 			]
 			assertEquals(solution(input), ["D", "B", "A", "C", "B", "E", "C", "D", "E"])
 		})
+		await t.step("과제", () => {
+			const input: Input = [
+				["A", "B"],
+				["A", "D"],
+				["B", "C"],
+				["B", "D"],
+				["B", "E"],
+				["C", "D"],
+				["C", "E"],
+				["D", "E"],
+			]
+
+			assertEquals(solution(input), ["C", "B", "A", "D", "B", "E", "C", "D", "E"])
+		})
 	})
 	await t.step("홀수점 4개", () => {
 		const input: Input = [
