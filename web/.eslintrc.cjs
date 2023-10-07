@@ -25,5 +25,6 @@ module.exports = {
 		],
         "react/display-name": "off",
         "@typescript-eslint/no-confusing-void-expression": "off",
+        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
 	},
 }
