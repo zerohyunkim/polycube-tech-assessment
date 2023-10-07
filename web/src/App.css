@@ -1,42 +1,43 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    min-width: 50vw;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+article,
+textarea {
+    padding: 1rem;
+    min-height: 14em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+article {
+    border: 1px solid black;
+    text-align: left;
+    overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+article>* {
+    max-width: 100%;
 }
 
-.card {
-  padding: 2em;
+textarea,
+article {
+    resize: vertical;
 }
 
-.read-the-docs {
-  color: #888;
+textarea,
+fieldset {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0.25rem 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* disable color highlight on heading links */
+article>h1>a,
+article>h2>a,
+article>h3>a {
+    color: inherit;
 }
